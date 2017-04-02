@@ -53,6 +53,9 @@ class Sreel3: SKSpriteNode {
         self.position = CGPoint(x: 109, y: -30)
         self.zPosition=0
         self.setScale(0.5)
+        
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,6 +63,29 @@ class Sreel3: SKSpriteNode {
     }
     
 }
+
+
+class Spin: SKSpriteNode {
+    // Constructor / initialize
+    init() {
+        let texture = SKTexture(image: #imageLiteral(resourceName: "spin"))
+        super.init(texture: texture, color: .white, size: CGSize(width: 150, height: 120))
+        
+        self.position = CGPoint(x: 130, y: -192)
+        self.zPosition=1
+        self.setScale(0.4)
+        self.name="spinbtn"
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+
+
 
 
  

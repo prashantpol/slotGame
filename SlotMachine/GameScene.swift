@@ -26,6 +26,7 @@ class GameScene: SKScene {
     var reelOne :Sreel1?
     var reeltwo :Sreel2?
     var reelThree :Sreel3?
+    var spinb :Spin?
     var timeleft=3
     var timer = Timer()
     let action: SKAction = SKAction.playSoundFileNamed("sound.wav", waitForCompletion: true)
@@ -43,7 +44,7 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         addBG()
-        addSpin()
+       // addSpin()
         addBet10()
         addBet25()
         addBet50()
@@ -56,6 +57,9 @@ class GameScene: SKScene {
         reeltwo?.zPosition=1;
         self.addChild(reeltwo!)
         
+        spinb=Spin()
+        spinb?.zPosition=1
+        self.addChild(spinb!)
         
         
         reelThree=Sreel3()
@@ -236,10 +240,10 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
       //  print("began")
         
-        
-        let btntextture=SKTexture(imageNamed:"spin_pressed")
-        spinButton=SKSpriteNode(texture: btntextture)
-        self.addChild(spinButton)
+        spinb?.texture = SKTexture(image: #imageLiteral(resourceName: "spin_pressed"))
+
+ 
+     
         
         var touch = touches as!  Set<UITouch>
         var location = touch.first!.location(in: self)
@@ -433,7 +437,8 @@ class GameScene: SKScene {
      }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("--------------------")
+        spinb?.texture = SKTexture(image: #imageLiteral(resourceName: "spin"))
+
 
      }
     
