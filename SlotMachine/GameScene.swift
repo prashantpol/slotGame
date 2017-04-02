@@ -13,18 +13,44 @@ class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
-    
+    var reelOne :Sreel1?
+    var reeltwo :Sreel2?
+    var reelThree :Sreel3?
+
+
     var images: [UIImage] = [#imageLiteral(resourceName: "bell"), #imageLiteral(resourceName: "orange"), #imageLiteral(resourceName: "grapes"), #imageLiteral(resourceName: "cherry"), #imageLiteral(resourceName: "banana"), #imageLiteral(resourceName: "bar"), #imageLiteral(resourceName: "seven")]
 
     var spinButton: SKNode! = nil
     var betButton: SKNode! = nil
+    var reel1: SKSpriteNode! = nil
+
+    var reel2: SKNode! = nil
+
+    var reel3: SKNode! = nil
 
     
     override func didMove(to view: SKView) {
-      addBG()
-      addSpin()
+        addBG()
+        addSpin()
         addBet1()
-  
+        
+        reelOne = Sreel1()
+        reelOne?.zPosition=1;
+        self.addChild(reelOne!)
+        
+        reeltwo=Sreel2()
+        reeltwo?.zPosition=1;
+        self.addChild(reeltwo!)
+        
+        
+        
+        reelThree=Sreel3()
+        reelThree?.zPosition=1;
+        self.addChild(reelThree!)
+        
+      //  addReel1(imagename: "banana")
+//        addReel2(imagename: "orange")
+//        addReel3(imagename: "seven")
        
     }
     
@@ -48,7 +74,9 @@ class GameScene: SKScene {
         spinButton.position = CGPoint(x: 130, y: -192)
         spinButton.zPosition=1
         spinButton.setScale(0.7)
+        spinButton.name="spinbtn"
         self.addChild(spinButton)
+        
         
     }
     //add Bet Button
@@ -65,10 +93,45 @@ class GameScene: SKScene {
     
     //add Reel 
 
-    func addReel1()
+    func addReel1(imagename : String)
     {
+        let reel1txt=SKTexture(imageNamed:imagename)
+        reel1=SKSpriteNode(texture: reel1txt)
         
+        reel1.position = CGPoint(x: 0, y: -30)
+        reel1.zPosition=1
+        reel1.setScale(0.5)
+
+        self.addChild(reel1)
     }
+    
+    
+    func addReel2(imagename : String)
+    {
+        let reel2text=SKTexture(imageNamed:imagename)
+        reel2=SKSpriteNode(texture: reel2text)
+        
+        reel2.position = CGPoint(x: -110, y: -30)
+        reel2.zPosition=1
+        reel2.setScale(0.5)
+
+        self.addChild(reel2)
+    }
+    
+    
+    
+    func addReel3(imagename : String)
+    {
+        let reel3txt=SKTexture(imageNamed:imagename)
+        reel3=SKSpriteNode(texture: reel3txt)
+        
+        reel3.position = CGPoint(x: 109, y: -30)
+        reel3.zPosition=1
+        reel3.setScale(0.5)
+
+        self.addChild(reel3)
+    }
+    
     
     func touchDown(atPoint pos : CGPoint) {
        
@@ -79,20 +142,113 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-       
+       //print(pos)
+       print("test")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
- 
+      //  print("began")
+        var touch = touches as!  Set<UITouch>
+        var location = touch.first!.location(in: self)
+        var node = self.atPoint(location)
+        
+        // If next button is touched, start transition to second scene
+        if (node.name == "spinbtn") {
+          
+            spin()
+           // print ("yes")
+        }
+
     }
     
+    func spin(){
+        let one = Int(arc4random_uniform(UInt32(images.count)))
+       // reel1?.texture = SKTexture(image: images[one])
+        
+        let reel1imagename=images[one]
+        let n1=getImagename(number: one)
+        reelOne?.texture = SKTexture(image: images[one])
+
+       // addReel1(imagename: n1)
+     //   self.addChild(reel1)
+        
+        //addReel1(imagename: n1 as! String)
+        
+        let two = Int(arc4random_uniform(UInt32(images.count)))
+        //reel2?.texture = SKTexture(image: images[two])
+        let reel2imagename=images[two]
+        let n2=getImagename(number: two)
+        reeltwo?.texture = SKTexture(image: images[two])
+
+        
+        //addReel2(imagename: n2 as! String)
+        
+        let three = Int(arc4random_uniform(UInt32(images.count)))
+       // reel3?.texture = SKTexture(image: images[three])
+        let reel3imagename=images[three]
+        
+    
+        let n3=getImagename(number: three)
+        
+         reelThree?.texture = SKTexture(image: images[three])
+
+     //   self.addChild(reel3)
+        
+    print(n1)
+        print(n2)
+
+        print(n3)
+
+    }
+    
+    func getImagename(number : Int) -> String
+    {
+        var name=""
+        if(number==0)
+        {
+            name="bell"
+           // print("over here")
+        }
+        else if(number==1)
+        {
+            name="orange"
+        }
+        else if(number==2)
+        {
+            name="grapes"
+        }
+        else if(number==3)
+        {
+            name="cherry"
+        }
+        else if(number==4)
+        {
+            name="banana"
+        }
+        else if(number==5)
+        {
+            name="bar"
+        }
+        else if(number==6)
+        {
+            name="seven"
+        }
+        return name
+    }
+    
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+ 
      }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("--------------------")
+
      }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("cancled")
+
      }
     
     
