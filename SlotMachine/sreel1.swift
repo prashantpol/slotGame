@@ -60,3 +60,6 @@ class Sreel3: SKSpriteNode {
     }
     
 }
+
+
+ 

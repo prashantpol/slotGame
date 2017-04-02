@@ -13,9 +13,15 @@ class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
-    private var totalcredit: SKLabelNode?
-    private var winnerpaid:SKLabelNode?
-    private var betlable:SKLabelNode?
+      var totalcredit: SKLabelNode!
+      var winnerpaid:SKLabelNode!
+      var betlable:SKLabelNode!
+    var result:SKLabelNode!
+    var money=1000
+    var win=0
+    var betamount=10
+    var jackpot=5000
+    var playerpaid=0
     
     var reelOne :Sreel1?
     var reeltwo :Sreel2?
@@ -38,7 +44,9 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         addBG()
         addSpin()
-        addBet1()
+        addBet10()
+        addBet25()
+        addBet50()
         
         reelOne = Sreel1()
         reelOne?.zPosition=1;
@@ -61,13 +69,45 @@ class GameScene: SKScene {
         
         //setting lables
         
-        totalcredit?.text = "1,000"
-        totalcredit?.fontSize = 30
-        totalcredit?.fontName = "Helvetica Neue"
-        totalcredit?.fontColor = SKColor(red: 255/255, green: 229/255, blue: 171/255, alpha: 1)
-        totalcredit?.horizontalAlignmentMode = .right
-        totalcredit?.position = CGPoint(x: -130, y: -10)
-        totalcredit?.zPosition = 1
+ 
+        result = SKLabelNode(fontNamed: "Helvetica Neue")
+        result.text = "Spin Now"
+        result.fontColor = SKColor(red: 114/255, green: 255/255, blue: 0/255, alpha: 1.0)
+        result.fontSize = 20
+        result.position = CGPoint(x: 2, y: 80)
+        result.zPosition=1
+        self.addChild(result)
+        
+        
+        
+        
+        totalcredit = SKLabelNode(fontNamed: "Helvetica Neue")
+        totalcredit.text = "1000"
+        totalcredit.fontColor = SKColor(red: 114/255, green: 255/255, blue: 0/255, alpha: 1.0)
+        totalcredit.fontSize = 25
+        totalcredit.position = CGPoint(x: -110, y: -125)
+        totalcredit.zPosition=1
+        self.addChild(totalcredit)
+        
+        
+        winnerpaid = SKLabelNode(fontNamed: "Helvetica Neue")
+        winnerpaid.text = "0"
+        winnerpaid.fontSize = 25
+         winnerpaid.zPosition=1
+        winnerpaid.fontColor = SKColor(red: 114/255, green: 255/255, blue: 0/255, alpha: 1.0)
+
+        winnerpaid.position = CGPoint(x: 100, y: -125)
+        self.addChild(winnerpaid)
+        
+        betlable = SKLabelNode(fontNamed: "Helvetica Neue")
+        betlable.text = "10"
+        betlable.fontSize = 25
+        betlable.zPosition=1
+        betlable.fontColor = SKColor(red: 114/255, green: 255/255, blue: 0/255, alpha: 1.0)
+
+        betlable.position = CGPoint(x: 0, y: -125)
+        self.addChild(betlable)
+        
         
      //   self.addChild(totalcredit!)
         
@@ -100,18 +140,45 @@ class GameScene: SKScene {
         
     }
     //add Bet Button
-    func addBet1()
+    func addBet10()
     {
-        let bettexture=SKTexture(imageNamed:"bet1")
+        let bettexture=SKTexture(imageNamed:"bet10")
         betButton=SKSpriteNode(texture: bettexture)
        
         betButton.position = CGPoint(x: -120, y: -192)
         betButton.zPosition=1
+        betButton.name="bet10"
          self.addChild(betButton)
         
     }
     
-    //add Reel 
+    func addBet25()
+    {
+        let bettexture=SKTexture(imageNamed:"bet25")
+        betButton=SKSpriteNode(texture: bettexture)
+        
+        betButton.position = CGPoint(x: -70, y: -192)
+        betButton.zPosition=1
+        betButton.name="bet25"
+        
+ 
+        self.addChild(betButton)
+        
+    }
+    func addBet50()
+    {
+        let bettexture=SKTexture(imageNamed:"bet50")
+        betButton=SKSpriteNode(texture: bettexture)
+        
+        betButton.position = CGPoint(x: -20, y: -192)
+        betButton.zPosition=1
+        betButton.name="bet50"
+ 
+        self.addChild(betButton)
+        
+    }
+    
+    //add Reel
 
     func addReel1(imagename : String)
     {
@@ -168,6 +235,12 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
       //  print("began")
+        
+        
+        let btntextture=SKTexture(imageNamed:"spin_pressed")
+        spinButton=SKSpriteNode(texture: btntextture)
+        self.addChild(spinButton)
+        
         var touch = touches as!  Set<UITouch>
         var location = touch.first!.location(in: self)
         var node = self.atPoint(location)
@@ -178,16 +251,38 @@ class GameScene: SKScene {
             spin()
            // print ("yes")
         }
+        else if(node.name == "bet10" )
+        {
+            betamount=10
+            betlable.text="10"
 
+        }
+        else if(node.name == "bet25" )
+        {
+            betamount=25
+            betlable.text="25"
+
+        }
+        else if(node.name == "bet50" )
+        {
+            betamount=50
+            betlable.text="50"
+
+        }
     }
  
+    func winningsound()
+    {
+        scene?.removeAllActions()
+        scene?.run(SKAction.playSoundFileNamed("cheering", waitForCompletion: true))
+    }
     
     func spin(){
 
         timer=Timer.scheduledTimer(timeInterval: 0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
         
        //  self.run(action, withKey:"sound")
-        scene?.run(SKAction.playSoundFileNamed("sound", waitForCompletion: false))
+        //scene?.run(SKAction.playSoundFileNamed("sound", waitForCompletion: false))
         
         let one = Int(arc4random_uniform(UInt32(images.count)))
        // reel1?.texture = SKTexture(image: images[one])
@@ -211,14 +306,9 @@ class GameScene: SKScene {
         //addReel2(imagename: n2 as! String)
         
         let three = Int(arc4random_uniform(UInt32(images.count)))
-       // reel3?.texture = SKTexture(image: images[three])
-        let reel3imagename=images[three]
-        
-    
-        let n3=getImagename(number: three)
         
          reelThree?.texture = SKTexture(image: images[three])
-
+        
         
         if(timeleft==0)
         {
@@ -227,22 +317,9 @@ class GameScene: SKScene {
             
         }
         
+        checkBet(one: one, two: two, three: three)
         
-      //  scene?.removeAllActions()
-
-        
-        
-     //   self.addChild(reel3)
-        
-        //make sound
-      //  scene?.run(SKAction.playSoundFileNamed("sound", waitForCompletion: true))
-
       
-        
-//    print(n1)
-//        print(n2)
-//
-//        print(n3)
 
     }
     
@@ -251,8 +328,8 @@ class GameScene: SKScene {
     
     func updateTimer()
     {
-        print("-------------------")
-        print(timeleft)
+//        print("-------------------")
+//        print(timeleft)
         if(timeleft>0)
         {
            
@@ -261,10 +338,57 @@ class GameScene: SKScene {
             timeleft=timeleft-1
         }
         else{
-            print("here")
+           // print("here")
             //self.removeAction(forKey: "sound")
             timer.invalidate()
             timeleft=3
+        }
+    }
+    
+    
+    func checkBet(one : Int, two : Int, three : Int){
+        
+        if(one == two && two == three){
+            print("JACKPOT")
+            scene?.run(SKAction.playSoundFileNamed("jackpotwinner", waitForCompletion: true))
+            scene?.run(SKAction.playSoundFileNamed("firework", waitForCompletion: true))
+            playerpaid=playerpaid+jackpot
+            money=money+jackpot;
+            totalcredit.text=String(money)
+            
+            winnerpaid.text = String(playerpaid)
+            
+            result.text=String("JACKPOT")
+//            slotMachineSprite?.jackpotLabel.text = "You Won"
+//            winnings = winnings + jackpot
+//            playerBet = 0
+//            playerMoney = playerMoney + jackpot
+//            
+//            slotMachineSprite?.betLabel.text = "0"
+//            slotMachineSprite?.winLabel.text = String(winnings)
+//            slotMachineSprite?.totalLabel.text = String(playerMoney)
+        } else if(one == two || two == three || one == three){
+            money=money+betamount
+            result.text=String("Winner")
+            totalcredit.text=String(money)
+            playerpaid=playerpaid+50;
+            winnerpaid.text = String(playerpaid)
+
+            winningsound()
+//            winnings = winnings + 50
+//            playerBet = 0
+//            playerMoney = playerMoney + 50
+//            
+//            slotMachineSprite?.betLabel.text = "0"
+//            slotMachineSprite?.winLabel.text = String(winnings)
+//            slotMachineSprite?.totalLabel.text = String(playerMoney)
+        }else{
+            
+            money=money-betamount
+            result.text=String("Try Again")
+            playerpaid=playerpaid-betamount;
+            winnerpaid.text=String(playerpaid)
+            totalcredit.text=String(money)
         }
     }
     

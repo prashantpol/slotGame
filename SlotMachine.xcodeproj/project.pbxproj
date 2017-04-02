@@ -16,6 +16,9 @@
 		EA4F448B1E9054D1006F58D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4F44891E9054D1006F58D3 /* LaunchScreen.storyboard */; };
 		EA5536011E916A24003BAADB /* sreel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5536001E916A24003BAADB /* sreel1.swift */; };
 		EA5536031E916FFA003BAADB /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = EA5536021E916FFA003BAADB /* sound.wav */; };
+		EA5536051E919353003BAADB /* cheering.wav in Resources */ = {isa = PBXBuildFile; fileRef = EA5536041E919353003BAADB /* cheering.wav */; };
+		EA5536071E919759003BAADB /* jackpotwinner.wav in Resources */ = {isa = PBXBuildFile; fileRef = EA5536061E919759003BAADB /* jackpotwinner.wav */; };
+		EA5536091E919809003BAADB /* firework.wav in Resources */ = {isa = PBXBuildFile; fileRef = EA5536081E919809003BAADB /* firework.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		EA4F448C1E9054D1006F58D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA5536001E916A24003BAADB /* sreel1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sreel1.swift; sourceTree = "<group>"; };
 		EA5536021E916FFA003BAADB /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sound.wav; path = ../sound.wav; sourceTree = "<group>"; };
+		EA5536041E919353003BAADB /* cheering.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cheering.wav; sourceTree = "<group>"; };
+		EA5536061E919759003BAADB /* jackpotwinner.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jackpotwinner.wav; sourceTree = "<group>"; };
+		EA5536081E919809003BAADB /* firework.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = firework.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +76,10 @@
 				EA4F44871E9054D1006F58D3 /* Assets.xcassets */,
 				EA4F44891E9054D1006F58D3 /* LaunchScreen.storyboard */,
 				EA5536021E916FFA003BAADB /* sound.wav */,
+				EA5536061E919759003BAADB /* jackpotwinner.wav */,
 				EA4F448C1E9054D1006F58D3 /* Info.plist */,
+				EA5536081E919809003BAADB /* firework.wav */,
+				EA5536041E919353003BAADB /* cheering.wav */,
 				EA5536001E916A24003BAADB /* sreel1.swift */,
 			);
 			path = SlotMachine;
@@ -137,8 +146,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA5536031E916FFA003BAADB /* sound.wav in Resources */,
+				EA5536091E919809003BAADB /* firework.wav in Resources */,
 				EA4F44861E9054D1006F58D3 /* Main.storyboard in Resources */,
+				EA5536071E919759003BAADB /* jackpotwinner.wav in Resources */,
 				EA4F44881E9054D1006F58D3 /* Assets.xcassets in Resources */,
+				EA5536051E919353003BAADB /* cheering.wav in Resources */,
 				EA4F448B1E9054D1006F58D3 /* LaunchScreen.storyboard in Resources */,
 				EA4F447F1E9054D1006F58D3 /* Actions.sks in Resources */,
 			);
