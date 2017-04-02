@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlotMachine/GameScene.swift"
-            timestampString = "512846948.735307"
+            timestampString = "512853793.675931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "addReel2(imagename:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlotMachine/GameScene.swift"
-            timestampString = "512846948.735307"
+            timestampString = "512853211.401955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "didMove(to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlotMachine/GameScene.swift"
-            timestampString = "512846948.735307"
+            timestampString = "512853793.675931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "getImagename(number:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlotMachine/GameScene.swift"
-            timestampString = "512846948.735307"
+            timestampString = "512853793.675931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "addReel1(imagename:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,120 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlotMachine/GameScene.swift"
-            timestampString = "512846918.070249"
+            timestampString = "512853211.401955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "didMove(to:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlotMachine/GameScene.swift"
+            timestampString = "512853211.401955"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "GameScene"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SlotMachine.GameScene.images.getter : Swift.Array&lt;__ObjC.UIImage&gt;"
+                  moduleName = "SlotMachine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prashantn.pol/D/Sem%202/IosClass/SlotMachine/SlotMachine/GameScene.swift"
+                  timestampString = "512851274.616506"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SlotMachine.GameScene.images.setter : Swift.Array&lt;__ObjC.UIImage&gt;"
+                  moduleName = "SlotMachine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prashantn.pol/D/Sem%202/IosClass/SlotMachine/SlotMachine/GameScene.swift"
+                  timestampString = "512851274.61863"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SlotMachine.GameScene.init (size : __C.CGSize) -&gt; SlotMachine.GameScene"
+                  moduleName = "SlotMachine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prashantn.pol/D/Sem%202/IosClass/SlotMachine/SlotMachine/GameScene.swift"
+                  timestampString = "512851274.620423"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "163">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SlotMachine.GameScene.init () -&gt; SlotMachine.GameScene"
+                  moduleName = "SlotMachine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prashantn.pol/D/Sem%202/IosClass/SlotMachine/SlotMachine/GameScene.swift"
+                  timestampString = "512851274.622378"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "153">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SlotMachine.GameScene.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;SlotMachine.GameScene&gt;"
+                  moduleName = "SlotMachine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prashantn.pol/D/Sem%202/IosClass/SlotMachine/SlotMachine/GameScene.swift"
+                  timestampString = "512851274.624136"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "157">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlotMachine/GameScene.swift"
+            timestampString = "512853183.070279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "didMove(to:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -15,6 +15,7 @@
 		EA4F44881E9054D1006F58D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4F44871E9054D1006F58D3 /* Assets.xcassets */; };
 		EA4F448B1E9054D1006F58D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4F44891E9054D1006F58D3 /* LaunchScreen.storyboard */; };
 		EA5536011E916A24003BAADB /* sreel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5536001E916A24003BAADB /* sreel1.swift */; };
+		EA5536031E916FFA003BAADB /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = EA5536021E916FFA003BAADB /* sound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EA4F448A1E9054D1006F58D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA4F448C1E9054D1006F58D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA5536001E916A24003BAADB /* sreel1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sreel1.swift; sourceTree = "<group>"; };
+		EA5536021E916FFA003BAADB /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sound.wav; path = ../sound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				EA4F44841E9054D1006F58D3 /* Main.storyboard */,
 				EA4F44871E9054D1006F58D3 /* Assets.xcassets */,
 				EA4F44891E9054D1006F58D3 /* LaunchScreen.storyboard */,
+				EA5536021E916FFA003BAADB /* sound.wav */,
 				EA4F448C1E9054D1006F58D3 /* Info.plist */,
 				EA5536001E916A24003BAADB /* sreel1.swift */,
 			);
@@ -133,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA5536031E916FFA003BAADB /* sound.wav in Resources */,
 				EA4F44861E9054D1006F58D3 /* Main.storyboard in Resources */,
 				EA4F44881E9054D1006F58D3 /* Assets.xcassets in Resources */,
 				EA4F448B1E9054D1006F58D3 /* LaunchScreen.storyboard in Resources */,

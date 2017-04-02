@@ -51,7 +51,7 @@ class Sreel3: SKSpriteNode {
         super.init(texture: texture, color: .white, size: CGSize(width: 150, height: 120))
         
         self.position = CGPoint(x: 109, y: -30)
-        self.zPosition=1
+        self.zPosition=0
         self.setScale(0.5)
     }
     

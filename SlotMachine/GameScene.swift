@@ -13,11 +13,17 @@ class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    private var totalcredit: SKLabelNode?
+    private var winnerpaid:SKLabelNode?
+    private var betlable:SKLabelNode?
+    
     var reelOne :Sreel1?
     var reeltwo :Sreel2?
     var reelThree :Sreel3?
-
-
+    var timeleft=3
+    var timer = Timer()
+    let action: SKAction = SKAction.playSoundFileNamed("sound.wav", waitForCompletion: true)
+    
     var images: [UIImage] = [#imageLiteral(resourceName: "bell"), #imageLiteral(resourceName: "orange"), #imageLiteral(resourceName: "grapes"), #imageLiteral(resourceName: "cherry"), #imageLiteral(resourceName: "banana"), #imageLiteral(resourceName: "bar"), #imageLiteral(resourceName: "seven")]
 
     var spinButton: SKNode! = nil
@@ -51,6 +57,20 @@ class GameScene: SKScene {
       //  addReel1(imagename: "banana")
 //        addReel2(imagename: "orange")
 //        addReel3(imagename: "seven")
+        
+        
+        //setting lables
+        
+        totalcredit?.text = "1,000"
+        totalcredit?.fontSize = 30
+        totalcredit?.fontName = "Helvetica Neue"
+        totalcredit?.fontColor = SKColor(red: 255/255, green: 229/255, blue: 171/255, alpha: 1)
+        totalcredit?.horizontalAlignmentMode = .right
+        totalcredit?.position = CGPoint(x: -130, y: -10)
+        totalcredit?.zPosition = 1
+        
+     //   self.addChild(totalcredit!)
+        
        
     }
     
@@ -160,8 +180,15 @@ class GameScene: SKScene {
         }
 
     }
+ 
     
     func spin(){
+
+        timer=Timer.scheduledTimer(timeInterval: 0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
+        
+       //  self.run(action, withKey:"sound")
+        scene?.run(SKAction.playSoundFileNamed("sound", waitForCompletion: false))
+        
         let one = Int(arc4random_uniform(UInt32(images.count)))
        // reel1?.texture = SKTexture(image: images[one])
         
@@ -192,13 +219,53 @@ class GameScene: SKScene {
         
          reelThree?.texture = SKTexture(image: images[three])
 
+        
+        if(timeleft==0)
+        {
+             scene?.removeAllActions()
+         
+            
+        }
+        
+        
+      //  scene?.removeAllActions()
+
+        
+        
      //   self.addChild(reel3)
         
-    print(n1)
-        print(n2)
+        //make sound
+      //  scene?.run(SKAction.playSoundFileNamed("sound", waitForCompletion: true))
 
-        print(n3)
+      
+        
+//    print(n1)
+//        print(n2)
+//
+//        print(n3)
 
+    }
+    
+    
+    //unusedfunction
+    
+    func updateTimer()
+    {
+        print("-------------------")
+        print(timeleft)
+        if(timeleft>0)
+        {
+           
+           // scene?.run(SKAction.playSoundFileNamed("sound", waitForCompletion: true))
+            
+            timeleft=timeleft-1
+        }
+        else{
+            print("here")
+            //self.removeAction(forKey: "sound")
+            timer.invalidate()
+            timeleft=3
+        }
     }
     
     func getImagename(number : Int) -> String
