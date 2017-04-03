@@ -31,11 +31,12 @@ class GameScene: SKScene {
     var timer = Timer()
     let action: SKAction = SKAction.playSoundFileNamed("sound.wav", waitForCompletion: true)
     
-    var images: [UIImage] = [#imageLiteral(resourceName: "bell"), #imageLiteral(resourceName: "orange"), #imageLiteral(resourceName: "grapes"), #imageLiteral(resourceName: "cherry"), #imageLiteral(resourceName: "banana"), #imageLiteral(resourceName: "bar"), #imageLiteral(resourceName: "seven")]
+    var images: [UIImage] = [#imageLiteral(resourceName: "bell"), #imageLiteral(resourceName: "orange"), #imageLiteral(resourceName: "grapes"), #imageLiteral(resourceName: "cherry"), #imageLiteral(resourceName: "banana"), #imageLiteral(resourceName: "bar"), #imageLiteral(resourceName: "seven"),#imageLiteral(resourceName: "blank")]
 
     var spinButton: SKNode! = nil
     var betButton: SKNode! = nil
     var reel1: SKSpriteNode! = nil
+    var resetbutton: SKNode! = nil
 
     var reel2: SKNode! = nil
 
@@ -48,6 +49,7 @@ class GameScene: SKScene {
         addBet10()
         addBet25()
         addBet50()
+        addReset()
         
         reelOne = Sreel1()
         reelOne?.zPosition=1;
@@ -182,6 +184,20 @@ class GameScene: SKScene {
         
     }
     
+    
+    func addReset()
+    {
+        let resettexture=SKTexture(imageNamed:"reset")
+        resetbutton=SKSpriteNode(texture: resettexture)
+        
+        resetbutton.position = CGPoint(x: 40, y: -192)
+        resetbutton.zPosition=1
+        resetbutton.name="reset"
+        resetbutton.setScale(0.7)
+        self.addChild(resetbutton)
+        
+    }
+    
     //add Reel
 
     func addReel1(imagename : String)
@@ -251,8 +267,16 @@ class GameScene: SKScene {
         
         // If next button is touched, start transition to second scene
         if (node.name == "spinbtn") {
-          
+          if(money>betamount)
+          {
             spin()
+          }
+            else
+          {
+            result.text="Less Credits"
+            }
+        
+            
            // print ("yes")
         }
         else if(node.name == "bet10" )
@@ -272,6 +296,17 @@ class GameScene: SKScene {
             betamount=50
             betlable.text="50"
 
+        }
+        else if(node.name == "reset" )
+        {
+            betamount=10
+            betlable.text="10"
+            winnerpaid.text="0"
+            win=0
+            totalcredit.text="1000"
+            playerpaid=0
+            money=1000
+            result.text="Play Now"
         }
     }
  
@@ -349,9 +384,11 @@ class GameScene: SKScene {
         }
     }
     
-    
+    var blankcount=0;
     func checkBet(one : Int, two : Int, three : Int){
-        
+        print(one)
+         print(two)
+         print(three)
         if(one == two && two == three){
             print("JACKPOT")
             scene?.run(SKAction.playSoundFileNamed("jackpotwinner", waitForCompletion: true))
@@ -372,20 +409,40 @@ class GameScene: SKScene {
 //            slotMachineSprite?.winLabel.text = String(winnings)
 //            slotMachineSprite?.totalLabel.text = String(playerMoney)
         } else if(one == two || two == three || one == three){
+            
+            
+            if(one==7)
+            
+            {
+                blankcount=blankcount+1
+                
+            }
+              if(two==7)
+            {
+                blankcount=blankcount+1
+
+            }
+              if(three==7)
+            {
+                blankcount=blankcount+1
+                
+            }
+            if(blankcount<=1)
+            {
             money=money+betamount
             result.text=String("Winner")
             totalcredit.text=String(money)
-            playerpaid=playerpaid+50;
+            playerpaid=playerpaid+betamount;
             winnerpaid.text = String(playerpaid)
-
+            
             winningsound()
-//            winnings = winnings + 50
-//            playerBet = 0
-//            playerMoney = playerMoney + 50
-//            
-//            slotMachineSprite?.betLabel.text = "0"
-//            slotMachineSprite?.winLabel.text = String(winnings)
-//            slotMachineSprite?.totalLabel.text = String(playerMoney)
+            
+    
+            }
+            else {
+             blankcount=0
+            }
+ 
         }else{
             
             money=money-betamount

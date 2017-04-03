@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7D356B35645756D39EDA61B276B6D5A5DBA215AE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "54636944F8495C891100FBA9544106EABB739C2B" : 9223372036854775807,
+    "7D356B35645756D39EDA61B276B6D5A5DBA215AE" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "61640D53-CF05-456A-8759-5C7F26F1F749",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "54636944F8495C891100FBA9544106EABB739C2B" : "",
+    "7D356B35645756D39EDA61B276B6D5A5DBA215AE" : "SlotMachine\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SlotMachine",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SlotMachine.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/prashantpol\/SlotMachineIos.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "54636944F8495C891100FBA9544106EABB739C2B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/prashantpol\/slotGame.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7D356B35645756D39EDA61B276B6D5A5DBA215AE"
+    }
+  ]
+}
