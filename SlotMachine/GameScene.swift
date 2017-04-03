@@ -37,7 +37,7 @@ class GameScene: SKScene {
     var betButton: SKNode! = nil
     var reel1: SKSpriteNode! = nil
     var resetbutton: SKNode! = nil
-
+    var casinologo: SKNode! = nil
     var reel2: SKNode! = nil
 
     var reel3: SKNode! = nil
@@ -109,6 +109,14 @@ class GameScene: SKScene {
         betlable.position = CGPoint(x: 0, y: -125)
         self.addChild(betlable)
         
+        
+        let casinotext=SKTexture(imageNamed:"casinocheck")
+        casinologo=SKSpriteNode(texture: casinotext)
+        
+        casinologo.position = CGPoint(x: 0, y: 250)
+        casinologo.zPosition=0
+         casinologo.name="spinbtn"
+        self.addChild(casinologo)
        
     }
     
@@ -261,7 +269,7 @@ class GameScene: SKScene {
         
         // If next button is touched, start transition to second scene
         if (node.name == "spinbtn") {
-          if(money>betamount)
+          if(money>=betamount)
           {
             spin()
           }
