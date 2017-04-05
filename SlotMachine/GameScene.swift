@@ -35,6 +35,8 @@ class GameScene: SKScene {
 
     var spinButton: SKNode! = nil
     var betButton: SKNode! = nil
+    var quitButton: SKNode! = nil
+
     var reel1: SKSpriteNode! = nil
     var resetbutton: SKNode! = nil
     var casinologo: SKNode! = nil
@@ -110,13 +112,23 @@ class GameScene: SKScene {
         self.addChild(betlable)
         
         
-        let casinotext=SKTexture(imageNamed:"casinocheck")
-        casinologo=SKSpriteNode(texture: casinotext)
+        let quittexture=SKTexture(imageNamed:"quit")
+        quitButton=SKSpriteNode(texture: quittexture, color: .white, size: CGSize(width: 120, height: 120))
         
-        casinologo.position = CGPoint(x: 0, y: 250)
-        casinologo.zPosition=0
-         casinologo.name="spinbtn"
-        self.addChild(casinologo)
+        quitButton.position = CGPoint(x: 110, y: 290)
+        quitButton.zPosition=1
+        quitButton.name="quitbutton"
+        quitButton.setScale(0.5)
+        self.addChild(quitButton)
+        
+        
+//        let casinotext=SKTexture(imageNamed:"casinocheck")
+//        casinologo=SKSpriteNode(texture: casinotext)
+//        
+//        casinologo.position = CGPoint(x: 0, y: 250)
+//        casinologo.zPosition=0
+//         casinologo.name="spinbtn"
+//        self.addChild(casinologo)
        
     }
     
@@ -258,7 +270,7 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
       //  print("began")
         
-        spinb?.texture = SKTexture(image: #imageLiteral(resourceName: "spin_pressed"))
+       
 
  
      
@@ -269,6 +281,7 @@ class GameScene: SKScene {
         
         // If next button is touched, start transition to second scene
         if (node.name == "spinbtn") {
+             spinb?.texture = SKTexture(image: #imageLiteral(resourceName: "spin_pressed"))
           if(money>=betamount)
           {
             spin()
@@ -299,6 +312,10 @@ class GameScene: SKScene {
             betlable.text="50"
 
         }
+        else if(node.name == "quitbutton")
+        {
+            exit(0)
+        }
         else if(node.name == "reset" )
         {
             betamount=10
@@ -324,6 +341,11 @@ class GameScene: SKScene {
         
       
         
+        if(timeleft>5)
+        {
+            timer.invalidate()
+        }
+        else{
         let one = Int(arc4random_uniform(UInt32(images.count)))
         
         let reel1imagename=images[one]
@@ -355,7 +377,7 @@ class GameScene: SKScene {
         checkBet(one: one, two: two, three: three)
         
       
-
+        }
     }
     
     
